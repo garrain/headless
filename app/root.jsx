@@ -6,11 +6,14 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react';
+import tailwind from './styles/tailwind-build.css';
 import styles from './styles/app.css';
-import favicon from '../public/favicon.svg';
+import favicon from '../public/favicon.ico';
+import {Layout} from './components/Layout';
 
 export const links = () => {
   return [
+    {rel: 'stylesheet', href: tailwind},
     {rel: 'stylesheet', href: styles},
     {
       rel: 'preconnect',
@@ -43,8 +46,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <h1>Hello, {name}</h1>
-        <p>This is a custom storefront powered by Hydrogen</p>
+        <h1>{name}</h1>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
